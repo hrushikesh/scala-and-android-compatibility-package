@@ -25,7 +25,9 @@ object AndroidBuild extends Build {
   lazy val main = Project (
     "Scala and Android Compatibility Package",
     file("."),
-    settings = General.fullAndroidSettings
+    settings = General.fullAndroidSettings ++ Seq (
+      useProguard in Android := false
+    )
   )
 
   lazy val tests = Project (
